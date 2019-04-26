@@ -29,9 +29,17 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
 var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
+
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
 var _react = require('react');
 
@@ -44,14 +52,42 @@ var Contexts = _react2.default.createContext();
 var result;
 
 function doaction(inward, change, s) {
-  return function () {
-    if (result === undefined) {
-      result = inward.apply(undefined, [s].concat(Array.prototype.slice.call(arguments)));
-    } else {
-      result = inward.apply(undefined, [result].concat(Array.prototype.slice.call(arguments)));
-    }
-    change((0, _extends3.default)({}, result));
-  };
+  return (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
+    var _args = arguments;
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!(result === undefined)) {
+              _context.next = 6;
+              break;
+            }
+
+            _context.next = 3;
+            return inward.apply(undefined, [s].concat(Array.prototype.slice.call(_args)));
+
+          case 3:
+            result = _context.sent;
+            _context.next = 9;
+            break;
+
+          case 6:
+            _context.next = 8;
+            return inward.apply(undefined, [result].concat(Array.prototype.slice.call(_args)));
+
+          case 8:
+            result = _context.sent;
+
+          case 9:
+            change((0, _extends3.default)({}, result));
+
+          case 10:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, this);
+  }));
 }
 
 function create(store, actions, Com) {

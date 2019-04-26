@@ -1,7 +1,7 @@
 {
   "name": "ckstore",
-  "version": "1.0.5",
-  "description": "create store with react",
+  "version": "1.1.2",
+  "description": "create store with react, support async",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,7 +14,11 @@
   ],
   "author": "chenkun",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-stage-0": "^6.24.1"
+  },
   "browserify": {
     "transform": [
       "loose-envify"
@@ -36,10 +40,5 @@
     "type": "git",
     "url": "git+https://github.com"
   },
-  "homepage": "https://github.com/#readme",
-  "dependencies": {
-    "@babel/polyfill": "^7.4.0",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-stage-0": "^6.24.1"
-  }
+  "homepage": "https://github.com/#readme"
 }

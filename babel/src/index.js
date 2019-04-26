@@ -4,11 +4,11 @@ const Contexts = React.createContext()
 var result
 
 function doaction(inward,change,s){
-  return function(){
+  return async function(){
     if (result === undefined) {
-      result = inward(s,...arguments)
+      result = await inward(s,...arguments)
     }else{
-      result = inward(result,...arguments)
+      result = await inward(result,...arguments)
     }
     change({...result})
   }
