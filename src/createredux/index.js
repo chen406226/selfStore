@@ -3,12 +3,16 @@ const Contexts = React.createContext()
 
 var result
 
+function applyMiddleware(...args){
+
+}
+
 function doaction(inward,change,s){
-  return function(){
+  return async function(){
     if (result === undefined) {
-      result = inward(s,...arguments)
+      result = await inward(s,...arguments)
     }else{
-      result = inward(result,...arguments)
+      result = await inward(result,...arguments)
     }
     change({...result})
   }
@@ -54,10 +58,6 @@ function connect(Com){
   }
 }
 
-// export default {
-//   create,
-//   connect
-// }
 export {
   create,
   connect
